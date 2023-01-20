@@ -1,0 +1,17 @@
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product-box {
+    background-color: azure;
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+  }
+  .header{
+    text-align: center;
+    
+  }
+  
