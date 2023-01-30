@@ -13,16 +13,14 @@ const [products1, setProduct] = useState([]);
     axios.get('https://dummyjson.com/products')
       .then((res) =>{
         setProduct(res.data.products);
-        //localStorage.setItem("products", JSON.stringify(res.data.products))
+        localStorage.setItem("products", JSON.stringify(res.data.products))
         
       })       
       .catch(err => console.log(err));
   }, []);
-   //setLocalSaved(JSON.parse(localStorage.getItem("products"))) ;
-  
-  //console.log("saved "+ savedProducts.length)
+   JSON.parse(localStorage.getItem("products"));
   const products = products1 || [];
-  //const products=localSaved || [];
+  //const products= JSON.parse(localStorage.getItem("products"));
   
   return (
     <div>

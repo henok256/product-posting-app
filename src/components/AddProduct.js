@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
-import App from './App';
+import {useNavigate, Link} from 'react-router-dom';
 import {v4 as uuidv4} from 'uuid';
 
  const AddProduct = (props) => {
+    
+
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
 const [price, setPrice] = useState(0);
@@ -21,12 +22,13 @@ const previousData= props.products;
 console.log(previousData);
 const navigate=useNavigate();
 const newProduct={
-    id:uuidv4(),
+    id:(props.products.length +1),
     title:title,
     description:description,
     price:price,
     images:images,
     stock:stock,
+    rating:rating,
     thumbnail:thumbnail,
     brand:brand,
     discountPercentage:discountPercentage,
@@ -46,13 +48,15 @@ const handleSubmit = (e) => {
     setThumbnail('');
     setImage('')
     setDiscountPercentage(0);
+    localStorage.setItem('products', JSON.stringify(props.products));
     //props.products.push(newProduct) props.setProduct([...props.products, newProduct]);
     navigate('/add');
   }
   
-  return (
+  return ( 
     <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
+            
     <label>Title:</label>
     <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
     <br />
@@ -84,7 +88,8 @@ const handleSubmit = (e) => {
     <input type="text" value={category} onChange={e => setCategory(e.target.value)} />
     <br />
     
-    <button type="submit">Add Product</button>
+    <button type="submit">Add Product</button><Link to='/'><button>Click here to back to the main page</button></Link>
+    
   </form>
   <div>
    

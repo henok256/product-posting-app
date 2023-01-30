@@ -3,7 +3,6 @@ import {v4 as uuidv4} from 'uuid';
 import '../App.css';
 
  const ProductList = (props) => {
-  
   if(props.products) {
     return (
        <div className="product-container">
@@ -19,8 +18,7 @@ import '../App.css';
     )
 }else{
     return <div className="headingTitle">Loading...</div>
-}
-    
+} 
   
 }
 
